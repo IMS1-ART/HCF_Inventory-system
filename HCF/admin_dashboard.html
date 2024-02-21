@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            color: #f8f9fa;
+            display: block;
+               /* Hover effect to make words bigger */
+            transition: font-size 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+            font-size: 18px; /* Increase font size on hover */
+        }
+        /* Content */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-user"></i> Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-users"></i> Staffs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-tags"></i> Product Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-utensils"></i> Served Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-trash-alt"></i> Void Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Reports</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Left Sidebar -->
+<div class="sidebar">
+    <a href="http://localhost/HCF/product.php"><i class="fas fa-box"></i> Inventory</a>
+    <a href="http://localhost/HCF/customer.php"><i class="fas fa-user"></i> Customers</a>
+    <a href="http://localhost/HCF/staffs.php"><i class="fas fa-users"></i> Staffs</a>
+    <a href="http://localhost/HCF/category.php"><i class="fas fa-tags"></i> Product Categories</a>
+    <a href="http://localhost/HCF/order.php"><i class="fas fa-shopping-cart"></i> Orders</a>
+    <a href="http://localhost/HCF/served_order.php"><i class="fas fa-utensils"></i> Served Orders</a>
+    <a href="http://localhost/HCF/void_order.php"><i class="fas fa-trash-alt"></i> Void Orders</a>
+    <a href="http://localhost/HCF/report.php"><i class="fas fa-chart-line"></i> Reports</a>
+</div>
+
+<!-- Page content -->
+<div class="content">
+    <!-- Your page content goes here -->
+    <h2>Welcome to the Admin Dashboard</h2>
+    <p>This is where you manage your inventory and other administrative tasks.</p>
+</div>
+
+<!-- Bootstrap JS and Font Awesome JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
