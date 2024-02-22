@@ -1,52 +1,58 @@
-let currentMode = 0; // Current color scheme mode
-const modes = ['light-mode', 'dark-mode', 'blue-mode', 'dyslexic-mode']; // Define color scheme modes
+const body = document.querySelector("body"),
+  sidebar = body.querySelector("nav"),
+  toggle = body.querySelector(".toggle"),
+  searchBtn = body.querySelector(".search-box"),
+  modeSwitch = body.querySelector(".toggle-switch"),
+  modeText = body.querySelector(".mode-text");
 
-let currentFont = 0; // Current font style index
-const fonts = ['Arial', 'Verdana', 'Open Dyslexic']; // Dyslexia-friendly font styles
+toggle.addEventListener("click", () => {
+  sidebar.classList.toggle("close");
+});
 
-function toggleColorScheme() {
-    const previewDiv = document.getElementById('color-preview');
-    currentMode = (currentMode + 1) % modes.length; // Cycle through modes
-    const mode = modes[currentMode]; // Get the current mode
-    document.body.className = mode; // Apply the new mode to the body
-    previewDiv.textContent = mode; // Display the mode name as a preview
-}
+searchBtn.addEventListener("click", () => {
+  sidebar.classList.remove("close");
+});
 
-function toggleFontStyle() {
-    const previewDiv = document.getElementById('font-preview');
-    currentFont = (currentFont + 1) % fonts.length; // Cycle through font styles
-    const font = fonts[currentFont]; // Get the current font style
-    document.body.style.fontFamily = font; // Apply the new font style to the body
-    previewDiv.textContent = font; // Display the font style name as a preview
-}
+modeSwitch.addEventListener("click", () => {
+  body.classList.toggle("dark");
 
-function toggleSettings() {
-    var settingsContent = document.getElementById("settingsContent");
-    settingsContent.classList.toggle("show");
-}
-function changeLanguage() {
-    const languageSelect = document.getElementById('language-select');
-    const selectedLanguage = languageSelect.value;
-    // Perform actions based on selected language
-    if (selectedLanguage === 'fr') {
-        translateToFrench();
-    } else {
-        translateToEnglish();
-    }
-}
+  if (body.classList.contains("dark")) {
+    modeText.innerText = "Light mode";
+  } else {
+    modeText.innerText = "Dark mode";
+  }
+});
 
-function translateToFrench() {
-    // Translate UI elements to French
-    document.querySelector('.navbar-brand').textContent = 'Votre Site Web';
-    document.querySelector('label[for="language-select"]').textContent = 'Langue :';
-    document.querySelector('option[value="en"]').textContent = 'Anglais';
-    document.querySelector('option[value="fr"]').textContent = 'Français';
-}
+const navbarMenu = document.querySelector(".navbar .links");
+const hamburgerBtn = document.querySelector(".hamburger-btn");
+const hideMenuBtn = navbarMenu.querySelector(".close-btn");
+const showPopupBtn = document.querySelector(".login-btn");
+const formPopup = document.querySelector(".form-popup");
+const hidePopupBtn = formPopup.querySelector(".close-btn");
+const signupLoginLink = formPopup.querySelectorAll(".bottom-link a");
 
-function translateToEnglish() {
-    // Translate UI elements to English
-    document.querySelector('.navbar-brand').textContent = 'Your Website';
-    document.querySelector('label[for="language-select"]').textContent = 'Language:';
-    document.querySelector('option[value="en"]').textContent = 'English';
-    document.querySelector('option[value="fr"]').textContent = 'French';
-}
+// Show mobile menu
+hamburgerBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("show-menu");
+});
+
+// Hide mobile menu
+hideMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+
+// Show login popup
+showPopupBtn.addEventListener("click", () => {
+  document.body.classList.toggle("show-popup");
+});
+
+// Hide login popup
+hidePopupBtn.addEventListener("click", () => showPopupBtn.click());
+
+// Show or hide signup form
+signupLoginLink.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    formPopup.classList[link.id === "signup-link" ? "add" : "remove"](
+      "show-signup"
+    );
+  });
+});

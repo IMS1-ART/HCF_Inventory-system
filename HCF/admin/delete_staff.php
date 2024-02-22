@@ -2,8 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$con = mysqli_connect("localhost", "root", "", "npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init");
+$con = mysqli_connect("localhost", "root", "", "csv_db 6");
 if (mysqli_connect_error()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
