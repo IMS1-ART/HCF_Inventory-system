@@ -1,0 +1,136 @@
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Color scheme selector button */
+.color-scheme-selector {
+    margin-right: 20px;
+}
+
+.color-scheme-selector button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.color-scheme-selector button:hover {
+    background-color: #ddd;
+}
+
+/* Content area */
+.content {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Dark mode */
+.dark-mode .navbar {
+    background-color: #222;
+}
+
+.dark-mode .navbar-brand {
+    color: #fff;
+}
+
+.dark-mode .content {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Light mode */
+.light-mode .navbar {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.light-mode .navbar-brand {
+    color: #333;
+}
+
+.light-mode .content {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Blue mode */
+.blue-mode .navbar {
+    background-color: #007bff;
+}
+
+.blue-mode .navbar-brand {
+    color: #fff;
+}
+
+.blue-mode .content {
+    background-color: #cce5ff;
+    color: #007bff;
+}
+/* Dyslexia-friendly color scheme */
+.dyslexic-mode .navbar {
+    background-color: #ffdb4d; /* Yellow */
+    color: #000; /* Black */
+}
+
+.dyslexic-mode .navbar-brand {
+    color: #000; /* Black */
+}
+
+.dyslexic-mode .content {
+    background-color: #fff; /* White */
+    color: #000; /* Black */
+}
+/* Dyslexia-friendly font styles */
+@font-face {
+    font-family: 'Open Dyslexic';
+    src: url('https://cdn.jsdelivr.net/npm/font-open-dyslexic@2/fonts/OpenDyslexic-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Dyslexic';
+    src: url('https://cdn.jsdelivr.net/npm/font-open-dyslexic@2/fonts/OpenDyslexic-Bold.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+.settings {
+    position: relative;
+}
+
+.settings-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1;
+}
+
+.settings-content.show {
+    display: block;
+}
+
+.settings-content button {
+    width: 100%;
+    text-align: left;
+}
+
