@@ -38,7 +38,7 @@ session_start();
         <i class="bx bx-chevron-right toggle"></i>
       </header>
 
-      <div class="menu-bar">
+     <div class="menu-bar">
         <div class="menu">
           <li class="search-box">
             <i class="bx bx-search icon"></i>
@@ -61,28 +61,28 @@ session_start();
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="staffs.php">
                 <i class="bx bx-group icon"></i>
                 <span class="text nav-text">Staffs</span>
               </a>
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="category.php">
                 <i class="bx bx-purchase-tag-alt icon"></i>
                 <span class="text nav-text">Product Categories</span>
               </a>
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="order.php">
                 <i class="bx bx-cart-alt icon"></i>
                 <span class="text nav-text">Orders</span>
               </a>
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="report.php">
                 <i class="bx bx-line-chart icon"></i>
                 <span class="text nav-text">Reports</span>
               </a>
