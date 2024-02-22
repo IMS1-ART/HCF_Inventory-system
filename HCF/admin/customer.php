@@ -143,7 +143,7 @@ session_start();
                                 echo "<td>".$row["phone_no"]."</td>";
                                 echo "<td>".$row["address"]."</td>";
                                 // Links for editing and deleting the customer
-                                echo "<td><a href='edit_customer.php?customer_id=".$row["customer_id"]."' class='btn btn-primary btn-sm bg-[dodgerblue] p-2 rounded-sm text-white''>Edit<i class='fas fa-edit'></i></a> | <a href='delete_customer.php?customer_id=".$row["customer_id"]."' class='btn btn-danger btn-sm bg-[crimson] p-2 rounded-sm text-white''>Delete<i class='fas fa-trash-alt'></i></a></td>";
+                                echo "<td><a href='edit_customer.php?customer_id=".$row["customer_id"]."' class='btn btn-primary btn-sm bg-[dodgerblue] p-2 rounded-sm text-white''>Edit <i class='bx bx-pencil icon'></i></a>  <a href='delete_customer.php?customer_id=".$row["customer_id"]."' class='btn btn-danger btn-sm bg-[crimson] p-2 rounded-sm text-white''>Delete<i class='fas fa-trash-alt'></i></a></td>";
                                 echo "</tr>";
                             }
                             echo "</tbody></table>";

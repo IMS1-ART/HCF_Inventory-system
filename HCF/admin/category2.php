@@ -2,31 +2,30 @@
 // Include database connection
 include("connect.php");
 session_start();
-
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $staff_name = $_POST["staff_name"];
-    $email = $_POST["email"];
-    $phone_no = $_POST["phone_no"];
-    $address = $_POST["address"];
-    $pin = $_POST["pin"];
-    // SQL to insert data using prepared statement
-    $stmt = $conn->prepare("INSERT INTO staffs (staff_name, email, phone_no, address, pin) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $staff_name, $email, $phone_no, $address, $pin);
-
-    if ($stmt->execute()) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-    $stmt->close();
-}
-
-// View staffs
 $result = $conn->query("SELECT * FROM category");
 
-// Close the database connection
-$conn->close();
+// Insert Category
+if(isset($_POST['submit_category'])) {
+    // Retrieve form data
+    $category_name = $_POST['category_name'];
+    $category_description = $_POST['category_description'];
+    
+    // Prepare and execute SQL statement to insert category into the database
+    $stmt = $conn->prepare("INSERT INTO category (category_name, category_description) VALUES (?, ?)");
+    // Bind parameters to the prepared statement
+    $stmt->bind_param("ss", $category_name, $category_description);
+    // Execute the statement
+    $stmt->execute();
+    
+    // Check if category insertion was successful
+    if($stmt->affected_rows > 0) {
+        echo "Category inserted successfully.";
+    } else {
+        echo "Failed to insert category.";
+    }
+    // Close the prepared statement
+    $stmt->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,21 +92,21 @@ $conn->close();
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="category.php">
                 <i class="bx bx-purchase-tag-alt icon"></i>
                 <span class="text nav-text">Product Categories</span>
               </a>
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="order.php">
                 <i class="bx bx-cart-alt icon"></i>
                 <span class="text nav-text">Orders</span>
               </a>
             </li>
 
             <li class="nav-link">
-              <a href="#">
+              <a href="report.php">
                 <i class="bx bx-line-chart icon"></i>
                 <span class="text nav-text">Reports</span>
               </a>
@@ -139,7 +138,7 @@ $conn->close();
     </nav>
 
     <section class="home">
-      <p class="text ">Staffs</p>
+      <p class="text ">Category</p>
   
       <!-- <p class="text mt-5 ml-5">Categories</p> -->
        <table class="staff-table ml-8">   
@@ -175,7 +174,7 @@ $conn->close();
                     </tbody>
                 </table>
                 <!-- Button to add new staff -->
-                <button class="btn btn-primary ml-8 bg-[dodgerblue] rounded-sm p-2 m-2 text-white btn-add-staff" onclick="showForm()">Add New Staff</button>
+                <button class="btn btn-primary ml-8 bg-[dodgerblue] rounded-sm p-2 m-2 text-white btn-add-staff" onclick="showForm()">Add New Category</button>
                 <!-- Form to insert staff (initially hidden) -->
                 <div class="staff-form ml-8" id="staffForm" style="display:none;">
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
