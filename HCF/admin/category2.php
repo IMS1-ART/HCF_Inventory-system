@@ -13,7 +13,7 @@ if(isset($_POST['submit_category'])) {
     // Prepare and execute SQL statement to insert category into the database
     $stmt = $conn->prepare("INSERT INTO category (category_name, category_description) VALUES (?, ?)");
     // Bind parameters to the prepared statement
-    $stmt->bind_param("ss", $category_name, $category_description);
+    $stmt->bind_param("ssss", $category_name, $category_description);
     // Execute the statement
     $stmt->execute();
     
